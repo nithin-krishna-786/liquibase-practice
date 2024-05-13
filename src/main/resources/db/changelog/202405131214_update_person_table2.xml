@@ -4,22 +4,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog 
 	http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
-	
-	<changeSet author="author" id="1">
-		<createTable tableName="person">
-			<column name="id" type="INTEGER">
-				<constraints primaryKey="true" nullable="false" />
-			</column>
-			<column name="name" type="VARCHAR(20)">
-				<constraints nullable="false" />
-			</column>
-			<column name="phonenumber" type="VARCHAR(12)">
-				<constraints nullable="false" />
-			</column>
-		</createTable>
-	</changeSet>
 
-	<changeSet id="2" author="nithin">
+	<changeSet id="3" author="nithin">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<columnExists tableName="person" columnName="city" />
+			</not>
+		</preConditions>
 		<addColumn tableName="person">
 			<column name="city" type="varchar(20)">
 				<constraints nullable="true" />
@@ -27,5 +18,12 @@
 		</addColumn>
 	</changeSet>
 
+	<changeSet id="4" author="nithin">
+		<addColumn tableName="person">
+			<column name="state" type="varchar(20)">
+				<constraints nullable="true" />
+			</column>
+		</addColumn>
+	</changeSet>
 
 </databaseChangeLog>

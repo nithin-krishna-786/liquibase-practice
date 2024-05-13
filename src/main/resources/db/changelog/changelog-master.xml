@@ -2,13 +2,10 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                                       dbchangelog-4.6.xsd">
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
         
         
 	<include file="/db/changelog/202403141850_create_person_table.xml" />
-		
-	<changeSet id="1" author="John Doe">
-		<!-- Your changes here -->
-	</changeSet>
+	<include file="/db/changelog/202405131214_update_person_table2.xml" />
 	
 </databaseChangeLog>

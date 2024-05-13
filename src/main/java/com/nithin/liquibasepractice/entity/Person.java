@@ -25,5 +25,8 @@ import lombok.Data;
 		
 	    @Column(name = "city", length = 20)
 	    private String city;
+	    
+	    @Column(name = "state", length = 20)
+	    private String state;
 	
 	}
